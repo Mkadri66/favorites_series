@@ -2,17 +2,18 @@
     <div>
         <h1> Recherchez une série </h1>
         <form @submit.prevent
-        @submit="handleSearch()">
+              @submit="handleSearch()">
             <input v-model="name"
-            placeholder="Nom de la serie"
-            type="text"/>
+                placeholder="Tapez le nom d'une serie ..."
+                type="text"
+                class="col-lg-6 search-input"/>
 
             <button class="btn-primary">
                 <i class="fas fa-search"></i>
             </button>
             <br>
-           <search-results></search-results>
         </form>
+        <search-results></search-results>
     </div>
 </template>
 
@@ -28,8 +29,8 @@ export default {
     methods: {
         handleSearch () {
             // on emet le nom au store qui va passer en parametre le nom recherché
-        this.$store.dispatch('FETCH_SERIES', this.name)
-        }
+            this.$store.dispatch('FETCH_SERIES', this.name)
+        },
     },
     components: {
         SearchResults
@@ -38,5 +39,22 @@ export default {
 </script>
 
 <style>
+h1, form  {
+    text-align: center;
+    margin-top: 20px;
+}
 
+p {
+    font-style: italic;
+    color:grey;
+    margin-top: 10px;
+}
+.search-input{
+    height: 43px;
+    border: 1px solid lightgrey;
+}
+.btn-primary {
+    height: 43px;
+    width: 43px;
+}
 </style>
