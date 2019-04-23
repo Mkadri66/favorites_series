@@ -6,7 +6,9 @@
         <div class="description">
           <div class="header">{{serie.title}}</div>
           <div class="overview">{{serie.overview}}</div>
-          <a class="add-fav" @click="addFav(serie)" :v-model="serie"> <i class="far fa-star"></i> Ajouter aux favoris </a>
+          <!-- <p> {{serie.isFavorite}}</p> -->
+          <a v-if="!serie.isFavorite" class="add-fav" @click="addFav(serie)" :v-model="serie"> <i class="far fa-star"></i> Ajouter aux favoris </a>
+          <p v-else class="already-fav"> Cette serie fait partie de vos favoris.</p>          
         </div>
       </div>
     </div>
@@ -87,6 +89,17 @@ export default {
   position: absolute;
   bottom: 16px;
   right: 42px;
+  padding: 10px;
+  background-color: #ececec;
+  border-radius: 5px;
+}
+
+.already-fav{
+  position: absolute;
+  bottom: 16px;
+  right: 42px;
+  color:grey;
+  font-style: italic;
 }
 
 /* // Animation  */

@@ -4,7 +4,7 @@
         <form @submit.prevent
               @submit="handleSearch()">
             <input v-model="name"
-                placeholder="Tapez le nom d'une serie ..."
+                placeholder="Tapez le nom d'une serie ... Entrée pour valider"
                 type="text"
                 class="col-lg-6 search-input"/>
 

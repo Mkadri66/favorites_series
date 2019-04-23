@@ -1,30 +1,35 @@
 <template>
-    <div>
-        <h1> Vos favoris </h1>
-        <div v-if="!!favSeries.length" class="row favorites container">
-            <div v-for="favSerie in favSeries" :key="favSerie.id" class="favorite col-lg-12">
-            <div class="content">
-                <img :src="favSerie.url" alt="">
-                <div class="description">
-                <div class="header">{{favSerie.title}}</div>
-                <div class="overview">{{favSerie.overview}}</div>
-                <a class="delete-fav" @click="deleteFav(serie)" :v-model="serie"> <i class="far fa-star"></i> <p>Retirer des favoris </p></a>
-                </div>
-            </div>
-            </div>
+  <div>
+    <h1>Vos favoris</h1>
+    <div v-if="!!favSeries.length" class="row favorites container">
+      <div v-for="favSerie in favSeries" :key="favSerie.id" class="favorite col-lg-12">
+        <div class="content">
+          <img :src="favSerie.url" alt>
+          <div class="description">
+            <div class="header">{{favSerie.title}}</div>
+            <div class="overview">{{favSerie.overview}}</div>
+            <a class="delete-fav" @click="deleteFav(favSerie)">
+              <p>
+                <i class="far fa-star"></i>Retirer des favoris
+              </p>
+            </a>
+          </div>
         </div>
-        <div v-else> 
-            <p>Aucun favoris</p>
-        </div>
+      </div>
     </div>
+    <div v-else>
+      <p class="no-fav">Aucun favori</p>
+    </div>
+  </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
 
 export default {
-    computed: mapGetters(["favSeries"]), 
-}
+  computed: mapGetters(["favSeries"]),
+  methods: mapActions(["deleteFav"])
+};
 </script>
 
 <style>
@@ -45,7 +50,7 @@ export default {
   animation-duration: 700ms;
 }
 
-.content{
+.content {
   display: flex;
   max-height: 300px;
 }
@@ -56,9 +61,9 @@ export default {
 
 .description {
   display: grid;
-  padding : 10px;
+  padding: 10px;
   margin-left: 30px;
-  max-height: 300px; 
+  max-height: 300px;
   margin-top: 20px;
 }
 .header {
@@ -79,14 +84,14 @@ export default {
   width: 200px;
 } */
 
-.no-result{
+.no-result {
   text-align: center;
   margin-top: 20px;
 }
 
 .delete-fav {
   position: absolute;
-  
+
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -94,20 +99,30 @@ export default {
   right: 42px;
 }
 
-
-.delete-fav i, p{
-    color:red;
+.delete-fav {
+  position: absolute;
+  bottom: 16px;
+  right: 42px;
+  padding: 5px;
+  background-color: #f50404;
+  border-radius: 5px;
 }
 
+.delete-fav a,
+p {
+  color: white;
+}
 
+.no-fav {
+  color: gray;
+  text-align: center;
+}
 
 /* // Animation  */
 
-  @keyframes slidein {
-      0%{
-        transform: scale(0.3) translateX(50px);
-        }
+@keyframes slidein {
+  0% {
+    transform: scale(0.3) translateX(50px);
   }
-
-
+}
 </style>
