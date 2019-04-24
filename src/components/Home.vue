@@ -26,8 +26,8 @@ export default {};
   background-size: cover;
   background-repeat: no-repeat;
   height: 100%; 
-  filter: blur(4px);
-  -webkit-filter: blur(4px);
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
 }
 .home-content{
   color: white;
@@ -54,5 +54,12 @@ export default {};
 
 h1{
     font-weight: bolder;
+}
+
+@media (max-width: 768px){
+  .home-content{
+    margin: 0;
+    padding: 25px;
+  }
 }
 </style>

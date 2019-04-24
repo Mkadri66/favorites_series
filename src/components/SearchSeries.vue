@@ -6,7 +6,7 @@
             <input v-model="name"
                 placeholder="Tapez le nom d'une serie ... Entrée pour valider"
                 type="text"
-                class="col-lg-6 search-input"/>
+                class="col-lg-6 col-md-8 col-8 search-input"/>
 
             <button class="btn-primary">
                 <i class="fas fa-search"></i>

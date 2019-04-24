@@ -91,7 +91,6 @@ export default {
 
 .delete-fav {
   position: absolute;
-
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -125,4 +124,33 @@ p {
     transform: scale(0.3) translateX(50px);
   }
 }
+/*  RESPONSIVE */
+
+/* IPAD  */
+ @media (max-width: 768px){
+  .favorite .content img {
+      height: 255px;
+      margin-top: 22px;
+  }
+  .favorite .content .delete-fav {
+    left: 24px !important;
+    bottom: 7px;
+    right: auto;
+    padding: 3px;
+    background-color: #ff7675;
+    border-radius: 5px;
+  }
+  .favorite .description{
+    margin-top: 0px;
+  }
+  .favorite .description .header{
+    font-size: 20px;
+  }
+  .favorite .description .overview{
+    font-size: 13px;
+  }
+}
+
+
+
 </style>
