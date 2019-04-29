@@ -8,11 +8,10 @@
           <div class="description">
             <div class="header">{{favSerie.title}}</div>
             <div class="overview">{{favSerie.overview}}</div>
-            <a class="delete-fav" @click="deleteFav(favSerie)">
-              <p>
-                <i class="far fa-star"></i>Retirer des favoris
-              </p>
-            </a>
+            <span class="delete-fav" @click="deleteFav(favSerie)">
+              <i class="far fa-trash-alt"></i>
+              <span>Retirer des favoris</span>
+            </span>
           </div>
         </div>
       </div>
@@ -34,82 +33,68 @@ export default {
 
 <style>
 .favorites {
-  height: 300px;
   margin: 20px auto;
 }
 .favorite {
-  /* border: 1px solid rgb(187, 187, 187); */
+  background-color: white;
   margin-bottom: 30px;
-  height: 350px;
-  overflow: auto;
+  height: 408px;
   border-radius: 10px;
-  -moz-box-shadow: -3px 4px 16px #adadad;
-  -webkit-box-shadow: -3px 4px 16px #adadad;
-  box-shadow: -3px 4px 16px #adadad;
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,.16);
   animation-name: slidein;
   animation-duration: 700ms;
 }
 
-.content {
+.favorite .content {
   display: flex;
   max-height: 300px;
 }
-.content img {
+.favorite .content img {
   height: 300px;
   margin-top: 30px;
 }
 
-.description {
+.favorite .content .description {
   display: grid;
   padding: 10px;
   margin-left: 30px;
-  max-height: 300px;
   margin-top: 20px;
 }
-.header {
+.favorite .content .description .header {
   font-weight: bold;
   font-size: 30px;
 }
 
-.overview {
+.favorite .content .description .overview {
   font-size: 15px;
   text-align: justify;
   padding-right: 15px;
 }
 
-.far {
+.favorite .content .description .delete-fav .far {
   text-align: right;
 }
-/* img{
-  width: 200px;
-} */
 
 .no-result {
   text-align: center;
   margin-top: 20px;
 }
 
-.delete-fav {
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  bottom: 16px;
-  right: 42px;
-}
 
 .delete-fav {
   position: absolute;
   bottom: 16px;
   right: 42px;
-  padding: 5px;
-  background-color: #f50404;
+  padding: 10px;
+  background-color: #ff7675;
   border-radius: 5px;
 }
-
-.delete-fav a,
-p {
-  color: white;
+.delete-fav i {
+  color:white;
+}
+.delete-fav span {
+  margin-left: 5px;
+  color:white;
 }
 
 .no-fav {
@@ -127,30 +112,87 @@ p {
 /*  RESPONSIVE */
 
 /* IPAD  */
- @media (max-width: 768px){
+@media (max-width: 768px) {
+  .favorite {
+    height: 345px;
+  }
   .favorite .content img {
-      height: 255px;
-      margin-top: 22px;
+    position: absolute;
+    height: 255px;
+    margin-top: 22px;
   }
   .favorite .content .delete-fav {
-    left: 24px !important;
-    bottom: 7px;
+    left: 17px !important;
+    bottom: 12px;
     right: auto;
-    padding: 3px;
+    padding: 8px;
     background-color: #ff7675;
     border-radius: 5px;
+    color: white;
   }
-  .favorite .description{
-    margin-top: 0px;
+
+  .favorite .content .description {
+    margin-top: 5px;
+    margin-left: 30%;
   }
-  .favorite .description .header{
+  .favorite .description .header {
     font-size: 20px;
   }
-  .favorite .description .overview{
+  .favorite .description .overview {
     font-size: 13px;
+    overflow: auto;
+    height: 225px;
   }
 }
 
+/* ///////////////////// */
 
+@media (max-width: 414px) {
 
+  .favorite {
+    height: auto;
+  }
+
+  .favorite .content {
+    max-height: unset;
+  }
+
+  .favorite .content .description {
+    margin-top: 40px;
+    margin-left: 0;
+    margin-bottom: 10px;
+    max-height: unset;
+  }
+  .favorite .content .description .header {
+    font-size: 25px;
+    text-align: left;
+    margin-bottom: 10px;
+  }
+
+  .favorite .content .description .overview {
+    width: 100%;
+    overflow: unset;
+    height: unset;
+    padding-right: 0;
+  }
+  .favorite .content img {
+    display: none;
+  }
+
+  .favorite .content .delete-fav {
+    position: absolute;
+    right: 10px;
+    left: auto !important;
+    top: 10px;
+    bottom: auto;
+    padding: 10px;
+    background-color: #ff7675;
+    border-radius: 5px;
+  }
+
+ 
+  .favorite .content .delete-fav span {
+    display: none;
+  }
+}
 </style>
