@@ -13,7 +13,7 @@
         <i class="fas fa-search"></i>
       </button>
       <br>
-      <p> Taper sur entrée pour valider</p>
+      <p>Taper sur entrée pour valider la recherche</p>
     </form>
     <search-results></search-results>
   </div>

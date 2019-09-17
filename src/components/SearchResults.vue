@@ -19,6 +19,9 @@
       </div>
     </div>
   </div>
+  <div v-else>
+    <p class="text-center"> Aucun resultat trouvé </p>
+  </div>
 </template>
 <script>
 import { mapGetters, mapActions } from "vuex";
@@ -34,7 +37,7 @@ export default {
 
 <style scope>
 .series {
-  margin: 20px auto;
+  margin: 70px auto;
 }
 .serie {
   /* border: 1px solid rgb(187, 187, 187); */
@@ -70,7 +73,7 @@ export default {
 
 .serie .content .description .overview {
   font-size: 15px;
-  text-align: justify;
+  text-align: left;
   padding-right: 15px;
   overflow: auto;
 }

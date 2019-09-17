@@ -1,24 +1,26 @@
 <template>
   <div>
     <h1>Vos favoris</h1>
-    <div v-if="!!favSeries.length" class="row favorites container">
-      <div v-for="favSerie in favSeries" :key="favSerie.id" class="favorite col-lg-12">
-        <div class="content">
-          <img :src="favSerie.url" alt>
-          <div class="description">
-            <div class="header">{{favSerie.title}}</div>
-            <div class="overview">{{favSerie.overview}}</div>
-            <span class="delete-fav" @click="deleteFav(favSerie)">
-              <i class="far fa-trash-alt"></i>
-              <span>Retirer des favoris</span>
-            </span>
+    <transition name="fade">
+      <div v-if="!!favSeries.length" class="row favorites container">
+        <div v-for="favSerie in favSeries" :key="favSerie.id" class="favorite col-lg-12" v-leave="fade">
+          <div class="content">
+            <img :src="favSerie.url" alt>
+            <div class="description">
+              <div class="header">{{favSerie.title}}</div>
+              <div class="overview">{{favSerie.overview}}</div>
+              <span class="delete-fav" @click="deleteFav(favSerie)">
+                <i class="far fa-trash-alt"></i>
+                <span>Retirer des favoris</span>
+              </span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div v-else>
-      <p class="no-fav">Aucun favori</p>
-    </div>
+      <div v-else v-leave="fade">
+        <p class="no-fav">Aucun favori</p>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -33,16 +35,16 @@ export default {
 
 <style>
 .favorites {
-  margin: 20px auto;
+  margin: 70px auto;
 }
 .favorite {
   background-color: white;
   margin-bottom: 30px;
   height: 408px;
   border-radius: 10px;
-  box-shadow: inset 0 -1px 0 rgba(0,0,0,.16);
-  animation-name: slidein;
-  animation-duration: 700ms;
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.16);
+  /* animation-name: slidein;
+  animation-duration: 700ms; */
 }
 
 .favorite .content {
@@ -80,7 +82,6 @@ export default {
   margin-top: 20px;
 }
 
-
 .delete-fav {
   position: absolute;
   bottom: 16px;
@@ -90,11 +91,11 @@ export default {
   border-radius: 5px;
 }
 .delete-fav i {
-  color:white;
+  color: white;
 }
 .delete-fav span {
   margin-left: 5px;
-  color:white;
+  color: white;
 }
 
 .no-fav {
@@ -104,10 +105,15 @@ export default {
 
 /* // Animation  */
 
-@keyframes slidein {
+/* @keyframes slidein {
   0% {
     transform: scale(0.3) translateX(50px);
   }
+} */
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1s;
 }
 /*  RESPONSIVE */
 
@@ -148,7 +154,6 @@ export default {
 /* ///////////////////// */
 
 @media (max-width: 414px) {
-
   .favorite {
     height: auto;
   }
@@ -190,7 +195,6 @@ export default {
     border-radius: 5px;
   }
 
- 
   .favorite .content .delete-fav span {
     display: none;
   }

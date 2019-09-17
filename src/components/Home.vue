@@ -20,8 +20,12 @@ export default {};
   height: 100vh;
 }
 
+/* .views {
+  margin-bottom: 70px;
+} */
+
 .wall-series {
-  background: url("https://assets.nflxext.com/ffe/siteui/vlv3/58a3d29a-63a2-4753-b5c6-63df88ab7f95/4369693a-bb2c-4240-9d20-01f188ddd1d7/FR-fr-20190414-popsignuptwoweeks-perspective_alpha_website_large.jpg");
+  background: url("../assets/wall_netflix.jpg");
   position: relative;
   background-size: cover;
   background-repeat: no-repeat;
@@ -40,17 +44,22 @@ export default {};
   position: absolute;
   left: 0;
   bottom: 0;
-  top: 40px;
-  margin-left: 20%;
+  margin: 20%;
 }
+
 .home-content h1 {
-  font-size: 60px;
+  text-shadow: 1px 1px 2px black;
+  font-size: 75px;
   font-weight: bolder;
 }
-.home-content p,
-a {
+.home-content p {
+  text-shadow: 1px 1px 2px black;
+  text-align: center;
   color: white;
-  font-size: 15px;
+  font-size: 25px;
+}
+.home-content .btn-outline-light {
+  margin-top: 20px;
 }
 
 h1 {
@@ -59,8 +68,21 @@ h1 {
 
 @media (max-width: 768px) {
   .home-content {
-    margin: 0;
-    padding: 25px;
+    top: 0;
+    margin: 0 10%;
+  }
+}
+
+@media (max-width: 414px) {
+  .home-content {
+    top: 0;
+    margin: 0 6%;
+  }
+  .home-content h1 {
+    font-size: 60px;
+  }
+  .home-content p {
+    font-size: 20px;
   }
 }
 </style>

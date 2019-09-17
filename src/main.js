@@ -14,23 +14,23 @@ Vue.use(VueRouter)
 Vue.config.productionTip = false
 
 const router = new VueRouter({
-   mode: 'history',
-     routes: [{
-         path: '/',
-          name: 'Home',
-         component: Home
-       },
-       {
-         path: '/search',
-         name: 'Search',
-         component: SearchSeries
-       },
-       {
-        path: '/favorites',
-        name: 'Favorites',
-        component: Favorites
-       }
-     ]
+  mode: 'history',
+  routes: [{
+      path: '/',
+      name: 'Home',
+      component: Home
+    },
+    {
+      path: '/search',
+      name: 'Search',
+      component: SearchSeries
+    },
+    {
+      path: '/favorites',
+      name: 'Favorites',
+      component: Favorites
+    }
+  ]
 
 })
 

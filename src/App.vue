@@ -65,7 +65,6 @@ nav {
 }
 
 .navbar-nav {
-  padding: 10px;
   border-top: 1px solid #e2e2e2;
   text-align: center;
   width: 100%;
@@ -75,9 +74,9 @@ nav {
   justify-content: space-evenly;
 }
 
-.views {
+/* .views {
   margin-bottom: 70px;
-}
+} */
 
 /*  ANIMATION */
 
@@ -96,16 +95,17 @@ nav {
 /*  RESPONSIVE */
 
 @media (max-width: 414px) {
-  
+
   .navbar-nav{
     justify-content: space-around;
+    padding: 10px;
   }
   .navbar-nav .nav-item a span {
     display: none;
   }
 
   .navbar-nav .nav-item a i {
-    font-size: 25px;
+    font-size: 20px;
   }
 }
 </style>
